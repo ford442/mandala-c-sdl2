@@ -6,6 +6,8 @@
 */
 
 #include "mandala.h"
+#include <emscripten/emscripten.h>
+#include <SDL2/SDL.h>
 
 /*
 ** Mandala entry point.
