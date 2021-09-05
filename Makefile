@@ -2,12 +2,12 @@
 ## By Geographer
 ## Greetz to Epitech Coding Club
 
-CC	= gcc
+CC	= emcc
 
 CFLAGS	+= -W -Werror -Wall -Wextra -pedantic
-CFLAGS	+= -O3 -g3
+CFLAGS	+= -O3 -g3 -ffast-math -flto=thin -sAGGRESSIVE_VARIABLE_ELIMINATION=1 -sELIMINATE_DUPLICATE_FUNCTIONS=1 -fno-rtti -fno-exceptions  -s MALLOC="emmalloc" -s USES_DYNAMIC_ALLOC=0 -s SUPPORT_LONGJMP=0 -DNDEBUG -sASSERTIONS=0 -sALLOW_MEMORY_GROWTH=0 -s TOTAL_MEMORY=1400mb -sUSE_SDL=2 
 
-LDFLAGS	+= -lSDL2 -lm
+LDFLAGS	+= -lm
 
 SRCS	= mandala.c
 
@@ -20,7 +20,7 @@ NAME	= mandala
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
+	$(CC) $(OBJS) -o $(NAME).js $(LDFLAGS)
 
 clean:
 	$(RM) $(OBJS)
